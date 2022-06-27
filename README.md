@@ -39,7 +39,7 @@ wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key a
 ```sh
 sudo apt install postgresql postgresql-contrib -y
 ```
-### <ins> *Note* </ins>  : A user 'postgres' would have been created after the installation
+#### <ins> *Note* </ins>  : A user 'postgres' would have been created after the installation
 ```sh
 cat /etc/passwd
 ```
@@ -150,6 +150,7 @@ sudo groupadd sonar
 ### Create a user 'sonar' and set '/opt/sonarqube' as the home directory and group as 'sonar'
 > 
 > -c = comment , -d = home directory , -g = group <br>
+> <br>
 ```sh
 sudo useradd -c "SonarQube - User" -d /opt/sonarqube/ -g sonar sonar
 ```
@@ -163,19 +164,19 @@ sudo chown sonar:sonar /opt/sonarqube/ -R
 ```sh
 sudo vi /opt/sonarqube/conf/sonar.properties
 ```
+> Find the following lines:
+> <br> `sonar.jdbc.username=`
+> <br> `sonar.jdbc.password=`
+> 
 
-### Find the following lines:
-~~~
-sonar.jdbc.username=
-sonar.jdbc.password=
-~~~
-
-### Uncomment that lines, and add the database user and password 
+### Uncomment that lines, and add the database user and password
 ~~~
 sonar.jdbc.username=sonar
 sonar.jdbc.password=admin123
 ~~~
-### Below those above two lines, add all the following configuration lines
+### Below those above two lines, add all the following configuration lines then save and quit the file
+
+~~~
 sonar.jdbc.url=jdbc:postgresql://localhost/sonarqube
 sonar.web.host=0.0.0.0
 sonar.web.port=9000
@@ -183,13 +184,14 @@ sonar.web.javaAdditionalOpts=-server
 sonar.search.javaOpts=-Xmx512m -Xms512m -XX:+HeapDumpOnOutOfMemoryError
 sonar.log.level=INFO
 sonar.path.logs=logs
-
-### save and quit the file
-
+~~~
+ 
 ### Setup Systemd service for SonarQube service
+```sh
 sudo vi /etc/systemd/system/sonarqube.service
+```
 
-Paste the following lines to the file
+Paste the following lines to the file then save and quite the file
 ~~~
 [Unit]
 Description=SonarQube service
@@ -213,16 +215,23 @@ WantedBy=multi-user.target
 ~~~
 
 ### Reload and Enable the SonarQube service to run at system startup
+```sh
 systemctl daemon-reload
+```
+```sh
 systemctl enable sonarqube.service
-###systemctl start sonarqube.service
-###systemctl status -l sonarqube.service
+```
+```sh
+systemctl status -l sonarqube.service
+```
 
 ### Modify Kernel System Limits
-Note : SonarQube uses Elasticsearch to store its indices in an MMap FS directory. It requires some changes to the system defaults.
+### <ins> *Note* </ins>  :  SonarQube uses Elasticsearch to store its indices in an MMap FS directory. It requires some changes to the system defaults.
 
 ### Edit the sysctl configuration file
+```sh
 sudo vi /etc/sysctl.conf
+```
 
 ### Add the following lines at bottom and Save and exit the file
 ~~~
@@ -233,7 +242,9 @@ ulimit -u 4096
 ~~~
 
 ### Edit the limit for the sonarqube user
+```sh
 sudo vi /etc/security/limits.conf 
+```
 
 ### Add the following lines at bottom and Save and exit the file
 ~~~
@@ -242,14 +253,16 @@ sonarqube   -   nproc    409
 ~~~
 
 ### Reboot the system to apply the changes
+```sh
 sudo reboot
+```
 
-### Access SonarQube Web Interface
-### Access SonarQube in a web browser at your server's IP address on port 9000. For example:
+### Access SonarQube in a Web browser at your server's IP address on port 9000. For example,
 ~~~
 http://192.168.29.44:9000
 ~~~
-
-> Note :
-Log in with username admin and password admin
-
+> <ins> *Note* </ins>
+> <br>
+> By default, Log in with username ***admin*** and password ***admin***
+> <br>
+> <br>
