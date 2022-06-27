@@ -48,15 +48,15 @@ cat /etc/passwd
 
 `postgres:x:113:121:PostgreSQL administrator,,,:/var/lib/postgresql:/bin/bash`
 
-### Enable and Start the 'postgresql' database server
+### Start and Enable the 'postgresql' database server
+```sh
+sudo systemctl start postgresql.service
+```
 ```sh
 sudo systemctl enable postgresql.service
 ```
 ```sh
-sudo systemctl start  postgresql.service
-```
-```sh
-sudo systemctl status  postgresql.service
+sudo systemctl status postgresql.service
 ```
 
 ### Create a password for user 'postgres' with passwd 'admin123'
