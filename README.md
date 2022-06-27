@@ -59,7 +59,7 @@ sudo systemctl enable postgresql.service
 sudo systemctl status postgresql.service
 ```
 
-### Create a password for user 'postgres' with passwd 'admin123'
+### Create a password for the user 'postgres' with passwd 'admin123'
 ```sh
 sudo passwd postgres
 ```
@@ -79,7 +79,7 @@ createuser sonar
 psql
 ```
 
-### Set a password for the sonar user. Use a strong password in place of 'admin123'
+### Set a password for the 'sonar' user. Use a strong password in place of 'admin123'
 ```sh
 ALTER USER sonar WITH ENCRYPTED PASSWORD 'admin123';
 ```
@@ -99,19 +99,19 @@ GRANT ALL PRIVILEGES ON DATABASE sonarqube to sonar;
 \q
 ```
 
-### Return to your 'sonar' user account
+### Return to the 'sonar' user account
 ```sh
 exit
 ```
 
 ### Restart the 'postgresql' database server
 ```sh
-systemctl restart  postgresql
+systemctl restart postgresql
 ```
 
 ### Verify for Active service and ports
 ```sh
-systemctl status -l   postgresql
+systemctl status -l postgresql
 ```
 ```sh
 netstat -ntpluea | grep postgres
@@ -135,12 +135,12 @@ sudo curl -O https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8
 sudo apt-get install zip unzip -y
 ```
 
-### Extract the downloaded zip file in /opt/ directory
+### Extract the downloaded zip file in '/opt' directory
 ```sh
 sudo unzip -o sonarqube-8.3.0.34182.zip -d /opt/
 ```
 
-### Rename the unzipped file in /opt directory as 'sonarqube' 
+### Rename the unzipped file in '/opt' directory as 'sonarqube' 
 ```sh
 sudo mv /opt/sonarqube-8.3.0.34182/ /opt/sonarqube
 ```
@@ -158,7 +158,7 @@ sudo groupadd sonar
 sudo useradd -c "SonarQube - User" -d /opt/sonarqube/ -g sonar sonar
 ```
 
-### Grant the 'sonar' user access to the '/opt/sonarqube directory'
+### Grant the 'sonar' user access to the '/opt/sonarqube' directory
 ```sh
 sudo chown sonar:sonar /opt/sonarqube/ -R
 ```
