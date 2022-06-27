@@ -10,12 +10,14 @@ Installation of SonarQube on Ubuntu 20.04 LTS with PostgreSQL database
 
 ### Refresh server’s local package index
 ```sh
-sudo apt-get update -y
+sudo apt update -y
 ```
+
 ### Install OpenJDK 11
 ```sh
-sudo apt-get install openjdk-11-jdk -y
+sudo apt install openjdk-11-jdk -y
 ```
+
 ### Update the alternatives config for JRE/JDK installations
 ```sh
 sudo update-alternatives --config java
@@ -23,26 +25,27 @@ sudo update-alternatives --config java
 ```sh
 java -version
 ```
-### Refresh server’s local package index
-```sh
-sudo apt update
-```
+
 ### Add the PostgreSQL repository
 ```sh
 sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
 ```
+
 ### Add the PostgreSQL signing key
 ```sh
 wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
 ```
+
 ### Install PostgreSQL with additional extensions & utilities
 ```sh
 sudo apt install postgresql postgresql-contrib -y
 ```
+
 #### <ins> *Note* </ins>  : A user 'postgres' would have been created after the installation
 ```sh
 cat /etc/passwd
 ```
+
 `postgres:x:113:121:PostgreSQL administrator,,,:/var/lib/postgresql:/bin/bash`
 
 ### Enable and Start the 'postgresql' database server
