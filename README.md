@@ -2,8 +2,8 @@
 Installation of SonarQube on Ubuntu 20.04 LTS with PostgreSQL database
 ## Prerequisite
 -  Ubuntu 20.04 LTS
--  2GB of RAM 
--  1 vCPU cores
+-  2GB of RAM minimum
+-  1 vCPU cores minimum
 <br>
 
 # Procedure 
@@ -36,7 +36,7 @@ sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`
 wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
 ```
 
-### Install PostgreSQL with additional extensions & utilities
+### Install PostgreSQL and PostgreSQL additional extensions & utilities
 ```sh
 sudo apt install postgresql postgresql-contrib -y
 ```
