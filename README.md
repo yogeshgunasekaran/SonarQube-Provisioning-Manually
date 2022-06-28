@@ -74,7 +74,7 @@ su - postgres
 createuser sonar
 ```
 
-### Log in to PostgreSQL
+### Log in to PostgreSQL database
 ```sh
 psql
 ```
@@ -94,12 +94,12 @@ CREATE DATABASE sonarqube OWNER sonar;
 GRANT ALL PRIVILEGES ON DATABASE sonarqube to sonar;
 ```
 
-### Exit from PostgreSQL
+### Exit from PostgreSQL database
 ```sh
 \q
 ```
 
-### Return to the 'sonar' user account
+### Exit from the 'postgres' user account
 ```sh
 exit
 ```
