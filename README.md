@@ -243,6 +243,12 @@ fs.file-max=65536
 ulimit -n 65536
 ulimit -u 4096
 ~~~
+>  where,
+> - vm.max_map_count = the maximum number of memory map areas a process may have <br>
+> - fs.file-max = the maximum number of file-handles that the Linux kernel will allocate <br>
+> - ulimit = command that allows viewing or limiting system resource amounts that individual users consume <br>
+> - -n = nofile = file descriptors <br>
+> - -u = nproc = processes/threads <br>
 
 ### Edit the limit for the sonarqube user
 ```sh
