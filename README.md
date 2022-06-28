@@ -151,13 +151,12 @@ sudo groupadd sonar
 ```
 
 ### Create a user 'sonar' and set '/opt/sonarqube' as the home directory and group as 'sonar'
-> 
-> -c = comment , -d = home directory , -g = group <br>
-> <br>
 ```sh
 sudo useradd -c "SonarQube - User" -d /opt/sonarqube/ -g sonar sonar
 ```
-
+> where, <br>
+> -c = comment , -d = home directory , -g = group <br>
+> 
 ### Grant the 'sonar' user access to the '/opt/sonarqube' directory
 ```sh
 sudo chown sonar:sonar /opt/sonarqube/ -R
