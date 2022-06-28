@@ -271,6 +271,6 @@ http://192.168.29.44:9000
 ~~~
 > <ins> *Note* </ins>
 > <br>
-> By default, Log in with username ***admin*** and password ***admin***
+> By default, Log in with username ***admin*** and password ***admin*** at the SonarQube homepage
 > <br>
 > <br>
