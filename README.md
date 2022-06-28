@@ -229,7 +229,7 @@ systemctl status -l sonarqube.service
 ```
 
 ### Modify Kernel System Limits
-### <ins> *Note* </ins>  :  SonarQube uses Elasticsearch to store its indices in an MMap FS directory. It requires some changes to the system defaults.
+#### <ins> *Note* </ins>  :  SonarQube uses Elasticsearch to store its indices in an MMap FS directory. It requires some changes to the system defaults.
 
 ### Edit the sysctl configuration file
 ```sh
