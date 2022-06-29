@@ -274,3 +274,63 @@ http://192.168.29.44:9000
 > By default, Log in with username ***admin*** and password ***admin*** at the SonarQube homepage
 > <br>
 > <br>
+
+# Install Ngnix (optional)
+- ### Ngnix is installed to act as a reverse proxy and HTTPS terminator for sonarqube instance
+- ### Ngnix service listen on port 80 and route the requests to sonarqube in localhost on port 9000
+- ### This also allows in the integration of nexus to sonarqube through port 80
+```sh
+sudo apt install nginx -y
+```
+
+### Remove the default Nginx config files
+```sh
+sudo rm -rf /etc/nginx/sites-enabled/default
+```
+```sh
+sudo rm -rf /etc/nginx/sites-available/default
+```
+
+### Configure ngnix to listen on port 80 and route the request to sonarqube on port 9000 locally by adding the following lines
+```sh
+sudo vi /etc/nginx/sites-available/sonarqube
+```
+~~~
+server{
+    listen      80;
+    server_name sonarqube.groophy.in;
+    access_log  /var/log/nginx/sonar.access.log;
+    error_log   /var/log/nginx/sonar.error.log;
+    proxy_buffers 16 64k;
+    proxy_buffer_size 128k;
+    location / {
+        proxy_pass  http://127.0.0.1:9000;
+        proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
+        proxy_redirect off;
+              
+        proxy_set_header    Host            \$host;
+        proxy_set_header    X-Real-IP       \$remote_addr;
+        proxy_set_header    X-Forwarded-For \$proxy_add_x_forwarded_for;
+        proxy_set_header    X-Forwarded-Proto http;
+    }
+}
+~~~
+### Create Symbolic link to activate the ngnix proxy server
+```sh
+sudo ln -s /etc/nginx/sites-available/sonarqube /etc/nginx/sites-enabled/sonarqube
+```
+
+### Enable ngnix to start at runtime
+```sh
+sudo systemctl enable nginx.service
+```
+
+### Allow the following ports in Ubuntu firewall and reboot system
+```sh
+sudo ufw allow 80,9000,9001/tcp
+```
+```sh
+reboot
+```
+
+
