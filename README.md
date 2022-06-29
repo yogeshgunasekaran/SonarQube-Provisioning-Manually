@@ -249,7 +249,7 @@ ulimit -u 4096
 > - -n = nofile = The maximum number of file descriptors that a process can have <br>
 > - -u = nproc = Specifies how many processes/threads a user can create <br>
 
-### Edit the limit for the sonarqube user
+### Edit the resource limits for the 'sonarqube' database
 ```sh
 sudo vi /etc/security/limits.conf 
 ```
