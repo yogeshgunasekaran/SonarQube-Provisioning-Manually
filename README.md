@@ -278,7 +278,6 @@ http://192.168.29.44:9000
 # Install Ngnix (optional)
 - ### Ngnix is installed to act as a reverse proxy and HTTPS terminator for sonarqube instance
 - ### Ngnix service listen on port 80 and route the requests to sonarqube in localhost on port 9000
-- ### This also allows in the integration of nexus to sonarqube through port 80
 ```sh
 sudo apt install nginx -y
 ```
