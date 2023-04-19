@@ -131,7 +131,7 @@ cd /sonarqube/
 #### Refer: https://www.sonarsource.com/products/sonarqube/downloads/   
 #### Note: Only download the latest 'LTS' version 
 ```sh
-sudo curl -O https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.3.0.34182.zip
+sudo curl -O https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.9.0.65466.zip
 ```
 
 ### Install zip & unzip
@@ -141,12 +141,12 @@ sudo apt-get install zip unzip -y
 
 ### Extract the downloaded zip file in '/opt' directory
 ```sh
-sudo unzip -o sonarqube-8.3.0.34182.zip -d /opt/
+sudo unzip -o sonarqube-9.9.0.65466.zip -d /opt/
 ```
 
 ### Rename the unzipped file in '/opt' directory as 'sonarqube' 
 ```sh
-sudo mv /opt/sonarqube-8.3.0.34182/ /opt/sonarqube
+sudo mv /opt/sonarqube-9.9.0.65466/ /opt/sonarqube
 ```
 
 ### Create a group 'sonar'
