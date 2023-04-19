@@ -106,7 +106,7 @@ exit
 
 ### Restart the 'postgresql' database server
 ```sh
-systemctl restart postgresql
+sudo systemctl restart postgresql
 ```
 
 ### Verify for Active service and ports
