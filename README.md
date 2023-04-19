@@ -125,7 +125,8 @@ sudo mkdir -p /sonarqube/
 cd /sonarqube/
 ```
 
-### Download SonarQube Refer: https://www.sonarsource.com/products/sonarqube/downloads/    (to download the latest version of sonarqube)
+### Download SonarQube 
+### To download the latest version of sonarqube, Refer: https://www.sonarsource.com/products/sonarqube/downloads/   
 ```sh
 sudo curl -O https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.3.0.34182.zip
 ```
