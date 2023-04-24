@@ -13,9 +13,12 @@ Installation of SonarQube on Ubuntu 20.04 LTS with PostgreSQL database
 sudo apt update -y
 ```
 
-### Install OpenJDK 11
+### Install OpenJDK and JRE 17
 ```sh
-sudo apt install openjdk-11-jdk -y
+sudo apt install openjdk-17-jdk -y
+```
+```sh
+sudo apt install openjdk-17-jre -y
 ```
 
 ### Update the alternatives config for JRE/JDK installations
