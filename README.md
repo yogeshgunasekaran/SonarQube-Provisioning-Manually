@@ -117,7 +117,7 @@ sudo systemctl restart postgresql
 systemctl status -l postgresql
 ```
 ```sh
-netstat -ntpluea | grep postgres
+sudo netstat -ntpluea | grep postgres
 ```
 
 ### Create 'sonarqube' directory and cd into it
