@@ -228,6 +228,9 @@ WantedBy=multi-user.target
 sudo systemctl daemon-reload
 ```
 ```sh
+sudo systemctl start sonarqube.service
+```
+```sh
 sudo systemctl enable sonarqube.service
 ```
 ```sh
