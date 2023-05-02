@@ -225,13 +225,13 @@ WantedBy=multi-user.target
 
 ### Reload and Enable the SonarQube service to run at system startup
 ```sh
-systemctl daemon-reload
+sudo systemctl daemon-reload
 ```
 ```sh
-systemctl enable sonarqube.service
+sudo systemctl enable sonarqube.service
 ```
 ```sh
-systemctl status -l sonarqube.service
+sudo systemctl status -l sonarqube.service
 ```
 
 ### Modify Kernel System Limits
