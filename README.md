@@ -131,7 +131,7 @@ cd /sonarqube/
 ### Download SonarQube
 
 ### To download the latest version of sonarqube, 
-#### Refer: https://www.sonarsource.com/products/sonarqube/downloads/   
+#### Refer: https://binaries.sonarsource.com/?prefix=Distribution/sonarqube/
 #### Note: Only download the latest 'LTS' version 
 ```sh
 sudo curl -O https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.9.0.65466.zip
